@@ -292,7 +292,6 @@ class _ViewProduct extends State<ViewProduct> {
                   }
 
                 }
-                controller.current.weightBought=0;
                 Get.back();
               },
 

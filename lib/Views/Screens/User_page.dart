@@ -209,8 +209,9 @@ class _ProductsPage extends State<ProductsPage> {
                 currentIndex: index,
                 onTap: (int newindex) {
                   FirebaseAuth.instance.signOut();
-                  if (newindex == 0) Get.toNamed('/login');
-
+                  if (newindex == 0) {
+                    Get.offAllNamed('/login');
+                  }
                 },
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(

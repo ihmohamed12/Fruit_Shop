@@ -79,7 +79,7 @@ class _Logbutton extends State<Logbutton> {
                     email: widget.email,
                     password: widget.password, context: context);
               }
-                Get.toNamed("/ViewProduct");
+                Get.offAllNamed("/ViewProduct");
 
             }
           } else {

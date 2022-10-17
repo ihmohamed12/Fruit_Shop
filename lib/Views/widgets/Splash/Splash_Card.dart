@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitzzz_shop/Views/widgets/BackGround/Background_user.dart';
+import 'package:get/get.dart';
 
 class SplachScreens extends StatelessWidget {
   final String description;
@@ -18,6 +19,7 @@ class SplachScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: null,
       body: Stack(
@@ -92,11 +94,18 @@ class SplachScreens extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
+                  if(image =="assets/images/Splash1.PNG") {
+                    controller.removeListener(() { });
+
+                    Get.toNamed('/login');
+
+                  }
                   controller.animateToPage(
                     controller.page!.toInt() + 1,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeInOut,
                   );
+
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(const CircleBorder()),

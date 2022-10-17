@@ -6,7 +6,6 @@ import 'package:fruitzzz_shop/Views/widgets/Splash/Splash_Card.dart';
 class Splach extends StatelessWidget {
   const Splach({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,14 +27,16 @@ class MyStatelessWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final PageController controller = PageController();
     return Container(
-        padding: const EdgeInsets.fromLTRB(15, 10, 15, 15),
 
         child:PageView(
+
 
       physics: const NeverScrollableScrollPhysics(),
       controller: controller,
 
+
       children:  <Widget>[
+
         Center(
           child: SplachScreens(description: "Quick Delivery at Your Doorstep",description2: "Home delivery and online reservation system for restaurants and cafe",image: "assets/images/Splash2.PNG",color:const [Colors.red,Colors.orange,Colors.orange],controller: controller),
         ),
@@ -44,8 +45,7 @@ class MyStatelessWidget extends StatelessWidget {
         ),
         Center(
           child: SplachScreens(description: "Choose from best menu",description2: "Pick your desired food from the menu there are more than 66 items",image: "assets/images/Splash1.PNG",color: const [Colors.orange,Colors.orange,Colors.red],controller: controller),
-        ),
-       Login(),
+        )
 
       ],
     ));

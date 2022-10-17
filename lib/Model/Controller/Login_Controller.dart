@@ -3,14 +3,16 @@ import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fruitzzz_shop/Views/Screens/Log_in.dart';
 import 'package:fruitzzz_shop/Views/Screens/Splash_Screen.dart';
 import 'package:fruitzzz_shop/Views/Screens/User_page.dart';
-import 'package:fruitzzz_shop/Views/Screens/Verify_Email.dart';
-import 'package:fruitzzz_shop/Views/widgets/User/showOtpDialog.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../User.dart';
+
+
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
+
 
 final controller = Get.find<LoginController>();
 String verification="";
@@ -119,6 +121,16 @@ class AuthService {
             return const Splach();
           }
         });
+  }
+  Future<UserCredential> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
   signInWithGoogle() async {

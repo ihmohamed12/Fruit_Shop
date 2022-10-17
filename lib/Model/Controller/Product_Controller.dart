@@ -158,9 +158,8 @@ class ProductController extends GetxController {
     update();
 
   }
-  subBrought(int i) {
-    bought[i].weightBought--;
-    update();
+  clearBrought() {
+    bought.clear();
+    update();  }
 
-  }
 }

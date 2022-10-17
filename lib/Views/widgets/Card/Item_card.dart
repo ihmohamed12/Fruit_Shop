@@ -73,7 +73,7 @@ class Item_card extends StatelessWidget {
                   )),
               const     Spacer()
             ],
-          )
+          ),
         ],
       ),
     );

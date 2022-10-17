@@ -90,7 +90,7 @@ class Popular extends StatelessWidget {
                         color: Colors.grey,fontFamily: 'Churchward Isabella')),
               ]),
               SizedBox(
-                width: MediaQuery.of(context).size.height*0.18,
+                width: MediaQuery.of(context).size.width*0.18,
               ),
               Row(
                 children: [
