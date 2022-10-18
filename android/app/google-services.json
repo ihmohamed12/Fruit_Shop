@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:439390181475:android:7397730b639fde2a688056",
+        "mobilesdk_app_id": "1:439390181475:android:ebf8ed18864aa4af688056",
         "android_client_info": {
           "package_name": "com.example.fruitshop"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "439390181475-rl81ucmvh89htmu92u1j3egt6hd9c2l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fruitshop",
+            "certificate_hash": "bcb59a12df158708b538422510053e90d4024d48"
+          }
+        },
         {
           "client_id": "439390181475-apticck7kq5ege19hldumqttm3dk6nae.apps.googleusercontent.com",
           "client_type": 3
@@ -21,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5RXX3E-8UhrBvUtKtawqxE4940eyQFJw"
+          "current_key": "AIzaSyBYgGBueWbPbyDhvDnSjihRYnWuYS2jtA8"
         }
       ],
       "services": {

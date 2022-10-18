@@ -28,7 +28,7 @@ class Popular extends StatelessWidget {
         // Image tapped
         ElevatedButton(
           onPressed: () {
-            currentItem = controller.bestRated as Product;
+            currentItem = controller.bestRated;
             setCurrent(controller.bestRated);
             controller.current = (controller.bestRated);
             Get.toNamed("/Product_card");          },
@@ -40,9 +40,9 @@ class Popular extends StatelessWidget {
 
 
             ),
-            primary: Colors.white,
+            backgroundColor: Colors.white,
             // Background color
-            onPrimary: Colors
+            foregroundColor: Colors
                 .red, // Text Color (Foreground color)
           ),        // Splash color over image
           child: Row(children: <Widget>[

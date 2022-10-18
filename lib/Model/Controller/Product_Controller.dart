@@ -5,7 +5,7 @@ import '../Product.dart';
 
 class ProductController extends GetxController {
   var weight = 0.obs;
-  int i =0;
+  int i = 0;
   List<Product> item = [];
   List<Product> bought = [];
   Product bestRated = Product(
@@ -27,14 +27,14 @@ class ProductController extends GetxController {
       type: "",
       name: "",
       rating: 0,
-      weightBought:1
-  );
+      weightBought: 1);
   List<bool> flag = [true, true, true, true, true].obs;
   var gridItems = [].obs;
 
   getCurrent() {
     return current;
   }
+
 
   weightADD() {
     current.weightBought++;
@@ -43,8 +43,16 @@ class ProductController extends GetxController {
 
   weightSUB() {
     current.weightBought--;
-    update();  }
-
+    update();
+  }
+  weightADD2(int i) {
+    bought[i].weightBought++;
+    update();
+  }
+  weightSUB2(int i) {
+    bought[i].weightBought--;
+    update();
+  }
   getWeight() {
     return weight;
   }
@@ -60,8 +68,7 @@ class ProductController extends GetxController {
         calories: 33,
         weight: 4,
         rating: 4.5,
-      weightBought: 1
-    ));
+        weightBought: 1));
     item.add(Product(
         name: 'Tomatoe',
         type: 'Veget',
@@ -72,8 +79,7 @@ class ProductController extends GetxController {
         calories: 33,
         weight: 6,
         rating: 4,
-        weightBought: 1
-    ));
+        weightBought: 1));
     item.add(Product(
         name: 'Spice',
         type: 'Spice',
@@ -149,17 +155,27 @@ class ProductController extends GetxController {
         description: currentProduct.description,
         imagePath: currentProduct.imagePath,
         weight: currentProduct.weight,
-        weightBought: currentProduct.weightBought
-    );
+        weightBought: currentProduct.weightBought);
   }
 
   removeBrought(int i) {
     bought.remove(bought[i]);
     update();
+  }
+
+  boughtTotal() {
+    double total = 0;
+    for (int i = 0; i < bought.length; i++) {
+      total += (bought[i].price*bought[i].weightBought ) ;
+
+    }
+
+    return total;
 
   }
+
   clearBrought() {
     bought.clear();
-    update();  }
-
+    update();
+  }
 }

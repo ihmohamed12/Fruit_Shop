@@ -186,7 +186,6 @@ class _Login extends State<Login> {
                                 children: [
                                   InkWell(   onTap: () {
                                     AuthService().signInWithGoogle();
-                                    Get.offAllNamed("/ViewProduct");
                             },
                               child: SizedBox(
                                     width: MediaQuery.of(context).size.width *
@@ -204,7 +203,6 @@ class _Login extends State<Login> {
                                         0.05,
                                     child:InkWell(   onTap: () {
                                       AuthService().signInWithFacebook();
-                                      Get.offAllNamed("/ViewProduct");
                                     },
                                       child: SizedBox(
                                         width: MediaQuery.of(context).size.width *

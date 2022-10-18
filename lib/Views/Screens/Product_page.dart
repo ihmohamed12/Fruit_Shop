@@ -38,7 +38,7 @@ class _ViewProduct extends State<ViewProduct> {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.offNamed('/ViewProduct');
+                        Get.back();
                       },
                       // Image tapped
                       splashColor: Colors.white10,
@@ -204,7 +204,7 @@ class _ViewProduct extends State<ViewProduct> {
                                     elevation: 0.0,
                                     shadowColor: Colors.transparent,
                                     shape: const StadiumBorder(),
-                                    primary: Colors.white,
+                                    backgroundColor: Colors.white,
                                   ),
                                   child: Row(
                                     children: [
@@ -302,7 +302,7 @@ class _ViewProduct extends State<ViewProduct> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                primary: Colors.red,
+                backgroundColor: Colors.red,
               ), // Image tapped
 
               child: SizedBox(

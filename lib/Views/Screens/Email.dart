@@ -118,7 +118,7 @@ class _SendEmail extends State<SendEmail> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                primary: Colors.red,
+                                backgroundColor: Colors.red,
                               ),
                               onPressed: () {
                                 if (_formKey2.currentState!.validate()) {

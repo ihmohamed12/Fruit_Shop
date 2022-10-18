@@ -211,6 +211,7 @@ class _ProductsPage extends State<ProductsPage> {
                   FirebaseAuth.instance.signOut();
                   if (newindex == 0) {
                     Get.offAllNamed('/login');
+                    FirebaseAuth.instance.signOut();
                   }
                 },
                 items: const <BottomNavigationBarItem>[

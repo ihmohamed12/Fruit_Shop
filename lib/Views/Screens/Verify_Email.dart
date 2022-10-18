@@ -2,9 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitzzz_shop/Model/Controller/Login_Controller.dart';
 import 'package:fruitzzz_shop/Views/widgets/BackGround/Background_user.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import '../widgets/User/Login/Log_Button.dart';
 
 class VerifyEmail extends StatefulWidget {
   const VerifyEmail({Key? key,}) : super(key: key);
@@ -14,7 +11,6 @@ class VerifyEmail extends StatefulWidget {
 }
 
 class _VerifyEmail extends State<VerifyEmail> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<TextEditingController> verifyControllers = [
     TextEditingController(),
     TextEditingController(),
@@ -26,7 +22,6 @@ class _VerifyEmail extends State<VerifyEmail> {
   @override
   void initState() {
     super.initState();
-    print(verification.toString()+"aaaassaa");
   }
   @override
   Widget build(BuildContext context) {

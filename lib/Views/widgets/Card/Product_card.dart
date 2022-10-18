@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fruitzzz_shop/Model/Controller/Login_Controller.dart';
-import 'package:fruitzzz_shop/Views/Screens/Product_page.dart';
 import 'package:fruitzzz_shop/Views/Screens/User_page.dart';
 import 'package:fruitzzz_shop/Model/Product.dart';
 import 'package:get/get.dart';
