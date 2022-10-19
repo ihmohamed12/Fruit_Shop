@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fruitzzz_shop/Views/Screens/Splash_Screen.dart';
-import 'package:fruitzzz_shop/Views/Screens/User_page.dart';
+import 'package:username_gen/username_gen.dart';
+import '../../Model/User.dart';
+import 'dart:math';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../User.dart';
+import '../../Views/Screens/ListLazyLoading.dart';
 
 
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -97,7 +102,6 @@ Future<void> phoneSignin(
       phoneNumber: phone,
       verificationCompleted: (PhoneAuthCredential cred) async {
         await auth.signInWithCredential(cred);
-        Get.toNamed("/ViewProduct");
       },
       verificationFailed: (e) {
         print('Failed: ${e.message.toString()}');
@@ -116,7 +120,7 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return const ProductsPage();
+            return const LazyLoading();
           } else {
             return const Splach();
           }
@@ -163,6 +167,19 @@ class LoginController extends GetxController {
   String error = '';
   String error2 = '';
 
+  List<Employee> Users = [];
+  List<String> jobs = [
+    "Ceo",
+    "Account Manager",
+    "Human Resources manager",
+    "Sales Manager",
+    "Marketing Manager",
+    "R&D Team"
+  ];
+  final _random = new Random();
+  ScrollController scrollController = ScrollController();
+
+
   void getData() {
     storage.readCounter().then((value) {
       data = value;
@@ -193,5 +210,45 @@ class LoginController extends GetxController {
   setObsecure() {
     isObscure = !isObscure;
     update();
+  }
+  addData() {
+   // sleep(Duration(seconds:1));
+
+    for (int i = 0; i < 10; i++) {
+      Users.add(Employee(
+          name: UsernameGen.generateWith(),
+          job: jobs[0 + _random.nextInt(6 - 0)],
+          imagePath: ""));
+    }
+    update();
+  }
+  void setUsers() {
+    for (int i = 0; i < 10; i++) {
+      Users.add(Employee(
+          name: UsernameGen.generateWith(),
+          job: jobs[0 + _random.nextInt(6 - 0)],
+          imagePath: ""));
+    }
+    controller.scrollController.addListener(() {
+      if (controller.scrollController.position.pixels ==
+          controller.scrollController.position.maxScrollExtent) {
+        if(Users.length<80){
+          addData();
+        }
+        else{
+          Fluttertoast.showToast(
+              msg: "No more items",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+              fontSize: 30.0
+          );
+        }
+
+      }
+    });
+
+
+
   }
 }

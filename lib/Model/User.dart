@@ -42,3 +42,17 @@ class CounterStorage {
   }
 }
 
+
+class Employee {
+  String name;
+  String job;
+  String imagePath;
+
+
+  Employee(
+      {required this.name,
+        required this.job,
+        required this.imagePath,
+
+        });
+}

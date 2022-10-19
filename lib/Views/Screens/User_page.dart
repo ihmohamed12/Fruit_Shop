@@ -79,43 +79,17 @@ class _ProductsPage extends State<ProductsPage> {
                                     fontSize: 25,
                                     color: Colors.black)),
                             const         Spacer(),
-                            SizedBox(
-                                // <-- SEE HERE
-                                width: MediaQuery.of(context).size.width * 0.06,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.06,
-                                child: InkWell(
-                                  onTap: () {},
-                                  // Image tapped
-                                  splashColor: Colors.white10,
-                                  // Splash color over image
-                                  child: Ink.image(
-                                    image: const AssetImage(
-                                      'assets/images/search.png',
-                                    ),
-                                  ),
-                                )),
-                            const   SizedBox(
-                              width: 20, //<-- SEE HERE
-                            ),
-                            SizedBox(
-                                // <-- SEE HERE
-                                width: MediaQuery.of(context).size.width * 0.06,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.06,
-                                child: InkWell(
-                                  onTap: () {
-                                    Get.toNamed("/Shopping");
-                                  },
-                                  // Image tapped
-                                  splashColor: Colors.white10,
-                                  // Splash color over image
-                                  child: Ink.image(
-                                    image:const AssetImage(
-                                      'assets/images/bell.png',
-                                    ),
-                                  ),
-                                )),
+                            IconButton(onPressed: (){
+                            }, icon:const Icon(Icons.search,color: Colors.black,size: 30,)),
+
+
+
+
+                            IconButton(onPressed: (){
+                                  Get.toNamed("/Shopping");
+                                }, icon:const Icon(Icons.notifications,color: Colors.red,size: 30))
+
+
                           ]),
                           const SizedBox(
                             height: 20,
@@ -128,8 +102,8 @@ class _ProductsPage extends State<ProductsPage> {
                                   fontFamily: 'Churchward Isabella',
                                 )),
                           ]),
-                          const        SizedBox(
-                            height: 10,
+                                 SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.02,
                           ),
                           SizedBox(
                             width: MediaQuery.of(context)
@@ -193,7 +167,10 @@ class _ProductsPage extends State<ProductsPage> {
                                 );
                               }),
                             ),
-                          )
+                          ),
+                       SizedBox(
+                         height:MediaQuery.of(context).size.width * 0.12 ,
+                       ),
                         ])))
               ],
             ),
@@ -224,7 +201,7 @@ class _ProductsPage extends State<ProductsPage> {
                     label: 'Shopping',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.share_location_outlined),
+                    icon: Icon(Icons.location_on),
                     label: 'location',
                   ),
                   BottomNavigationBarItem(

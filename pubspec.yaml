@@ -42,6 +42,10 @@ dependencies:
   google_sign_in: ^5.0.4
   flutter_facebook_auth: ^3.5.0
   firebase_phone_auth_handler:
+  username_gen: ^1.0.4
+  fluttertoast: ^8.1.1
+
+
 
 
 

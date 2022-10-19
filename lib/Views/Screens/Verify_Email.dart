@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitzzz_shop/Model/Controller/Login_Controller.dart';
 import 'package:fruitzzz_shop/Views/widgets/BackGround/Background_user.dart';
+import 'package:get/get.dart';
 
 class VerifyEmail extends StatefulWidget {
   const VerifyEmail({Key? key,}) : super(key: key);
@@ -190,6 +191,7 @@ class _VerifyEmail extends State<VerifyEmail> {
                         smsCode: sms,
                       );
                       await FirebaseAuth.instance.signInWithCredential(credential);
+                      Get.offAllNamed("/ViewProduct");
                     },
                     child: const Text("Verify"))
               ],
