@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -212,7 +213,7 @@ class LoginController extends GetxController {
     update();
   }
   addData() {
-   // sleep(Duration(seconds:1));
+    Timer(Duration(seconds: 1), () {
 
     for (int i = 0; i < 10; i++) {
       Users.add(Employee(
@@ -220,7 +221,8 @@ class LoginController extends GetxController {
           job: jobs[0 + _random.nextInt(6 - 0)],
           imagePath: ""));
     }
-    update();
+      update();
+    });
   }
   void setUsers() {
     for (int i = 0; i < 10; i++) {
