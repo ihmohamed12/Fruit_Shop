@@ -30,6 +30,7 @@ class ProductController extends GetxController {
       weightBought: 1);
   List<bool> flag = [true, true, true, true, true].obs;
   var gridItems = [].obs;
+  int index = 0;
 
   getCurrent() {
     return current;
@@ -178,4 +179,11 @@ class ProductController extends GetxController {
     bought.clear();
     update();
   }
+
+  setPage(int newIndex){
+    index =newIndex;
+    update();
+
+  }
+
 }

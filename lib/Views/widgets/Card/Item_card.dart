@@ -12,6 +12,7 @@ class Item_card extends StatelessWidget {
     final controller =Get.find<ProductController>();
     controller.weight=0.obs;
     return Card(
+      margin: EdgeInsets.zero,
       elevation: 0,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -22,9 +23,9 @@ class Item_card extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.28,
             width: MediaQuery.of(context).size.width,
-            child: Image(image: AssetImage(currentItem.imagePath)),
+            child: Image(image: AssetImage(currentItem.imagePath),),
           ),
           Row(
             children: [

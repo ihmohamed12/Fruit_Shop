@@ -7,19 +7,16 @@ import '../../Model/User.dart';
 import '../widgets/User/Login/DefaultTextField.dart';
 
 class Login<L> extends StatefulWidget {
-  const Login({super.key });
-
+  const Login({super.key});
 
   @override
   State<Login> createState() => _Login();
 }
 
-
 class _Login extends State<Login> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController textUserName =  TextEditingController();
-  TextEditingController textPassword =  TextEditingController();
+  TextEditingController textUserName = TextEditingController();
+  TextEditingController textPassword = TextEditingController();
   final controller = Get.find<LoginController>();
 
   @override
@@ -30,9 +27,6 @@ class _Login extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return SafeArea(
         child: Scaffold(
       appBar: null, // No action bar will build
@@ -42,8 +36,7 @@ class _Login extends State<Login> {
 
       body: Stack(
         children: [
-         const BackGroundLogin(),
-
+          const BackGroundLogin(),
           Positioned(
             left: MediaQuery.of(context).size.width * 0.0,
             top: MediaQuery.of(context).size.height * 0.8,
@@ -66,7 +59,7 @@ class _Login extends State<Login> {
             top: MediaQuery.of(context).size.height * 0.8,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.1,
-              width: MediaQuery.of(context).size.width*0.91,
+              width: MediaQuery.of(context).size.width * 0.91,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
                   boxShadow: [
@@ -74,13 +67,12 @@ class _Login extends State<Login> {
                       color: Colors.red.withAlpha(30),
                       blurRadius: 8.0,
                       spreadRadius: 1.0,
-                      offset:const Offset(
+                      offset: const Offset(
                         0.0,
                         8.0,
                       ),
                     ),
                   ]),
-
             ),
           ),
           SingleChildScrollView(
@@ -89,22 +81,24 @@ class _Login extends State<Login> {
                   child: Column(
                     children: <Widget>[
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.8,
+                            width: MediaQuery.of(context).size.width * 0.91,
                             height: MediaQuery.of(context).size.height * 0.23,
-                            child:const Image(
+                            child: const Image(
                                 image: AssetImage("assets/images/log.png")),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
                       ),
                       Row(
                         children: const [
                           Text('Sign in',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 35,
+                                  fontSize: 40,
                                   fontFamily: 'Churchward Isabella')),
                         ],
                       ),
@@ -117,8 +111,7 @@ class _Login extends State<Login> {
                             SizedBox(
                               child: Row(
                                 children: [
-
-                        Flexible(
+                                  Flexible(
                                     child: DefaultTextField(
                                       Textfield: textUserName,
                                       Type: Texttype.email,
@@ -152,17 +145,17 @@ class _Login extends State<Login> {
                                   onTap: () {
                                     Get.toNamed("/Send_Email");
                                   },
-                                  child:
-                                  const Text('Forgot Password?',
-                                    style: TextStyle(
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                        fontFamily: 'Churchward Isabella')),
-                                )],
+                                  child: const Text('Forgot Password?',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          fontFamily: 'Churchward Isabella')),
+                                )
+                              ],
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.07,
+                              height: MediaQuery.of(context).size.height * 0.06,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -184,41 +177,49 @@ class _Login extends State<Login> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  InkWell(   onTap: () {
-                                    AuthService().signInWithGoogle();
-                            },
-                              child: SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.05,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.05,
-                                    child:const Image(
-                                        image: AssetImage(
-                                            "assets/images/google.png")),
-                                  ),),
+                                  InkWell(
+                                    onTap: () {
+                                      AuthService().signInWithGoogle();
+                                    },
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.05,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      child: const Image(
+                                          image: AssetImage(
+                                              "assets/images/google.png")),
+                                    ),
+                                  ),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.05,
                                     height: MediaQuery.of(context).size.height *
                                         0.05,
-                                    child:InkWell(   onTap: () {
-                                      AuthService().signInWithFacebook();
-                                    },
+                                    child: InkWell(
+                                      onTap: () {
+                                        AuthService().signInWithFacebook();
+                                      },
                                       child: SizedBox(
-                                        width: MediaQuery.of(context).size.width *
-                                            0.05,
-                                        height: MediaQuery.of(context).size.height *
-                                            0.05,
-                                        child:const Image(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.05,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.05,
+                                        child: const Image(
                                             image: AssetImage(
                                                 "assets/images/facebook.png")),
-                                      ),),),
+                                      ),
+                                    ),
+                                  ),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.05,
                                     height: MediaQuery.of(context).size.height *
                                         0.05,
-                                    child:const Image(
+                                    child: const Image(
                                         image:
                                             AssetImage("assets/images/in.png")),
                                   ),
@@ -227,7 +228,7 @@ class _Login extends State<Login> {
                                         0.05,
                                     height: MediaQuery.of(context).size.height *
                                         0.05,
-                                    child:const Image(
+                                    child: const Image(
                                         image: AssetImage(
                                             "assets/images/twitter.png")),
                                   ),
@@ -241,7 +242,9 @@ class _Login extends State<Login> {
                                 email: textUserName.text,
                                 name: null,
                                 password: textPassword.text,
-                                phone: null,text: "Sign in",formKey: _formKey),
+                                phone: null,
+                                text: "Sign in",
+                                formKey: _formKey),
                           ])),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.035,
@@ -252,7 +255,7 @@ class _Login extends State<Login> {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:const [
+                          children: const [
                             Text('Don\'t you have account?',
                                 style: TextStyle(
                                     color: Colors.grey,
@@ -262,12 +265,10 @@ class _Login extends State<Login> {
                           ],
                         ),
                       ),
-
                     ],
                   )))
         ],
       ),
-
     ));
   }
 }

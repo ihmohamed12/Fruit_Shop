@@ -30,7 +30,7 @@ class TypeCard extends StatelessWidget {
           borderRadius:  BorderRadius.circular(15.0),
         ),
         child:
-Obx(()=>
+
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: controller.flag[i] ? Colors.white : Colors.red,
@@ -40,11 +40,16 @@ Obx(()=>
               borderRadius:  BorderRadius.circular(15.0),
             ),),
             onPressed: () {
+          //  if(Get.currentRoute=="/ViewProduct") {
               controller.getType(i);
+           // }
+
             },
             // Text Color (Foreground color)
 
-            child: Row(children: <Widget>[
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
               SizedBox(
                 // <-- SEE HERE
                 width: MediaQuery.of(context).size.width *
@@ -54,14 +59,13 @@ Obx(()=>
                 child: Image(
                     image: AssetImage(items[i].imagePath)),
               ),
-              Text(items[i].type,
+              Text(" ${items[i].type}",
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.black,
+                      fontSize: 18,
+                      color: Colors.black87,
                       fontFamily: 'Churchward Isabella')),
             ])),
-      ));
+      );
 
     //  return
 

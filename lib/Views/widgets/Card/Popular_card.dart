@@ -50,7 +50,7 @@ class Popular extends StatelessWidget {
 
               // <-- SEE HERE
               width: MediaQuery.of(context).size.width * 0.35,
-              height: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery.of(context).size.height * 0.14,
               child:  Image(
                   image:  AssetImage(
                       controller.bestRated.imagePath)),
@@ -63,8 +63,7 @@ class Popular extends StatelessWidget {
                   SizedBox(
                     child: Text('     ${controller.bestRated.name}',
                         style:const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 22,
                             color: Colors.black,fontFamily: 'Churchward Isabella'
                         )
                     ),
@@ -72,9 +71,7 @@ class Popular extends StatelessWidget {
                 ],
               ),
               Row(children: [
-                SizedBox(
-                  width:   MediaQuery.of(context).size.width*0.02,
-                ),
+
                 SizedBox(
                   // <-- SEE HERE
                   width:   MediaQuery.of(context).size.width*0.04,
@@ -86,7 +83,7 @@ class Popular extends StatelessWidget {
                 Text("   ${controller.bestRated.calories} calories",
                     style:const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: 16,
                         color: Colors.grey,fontFamily: 'Churchward Isabella')),
               ]),
               SizedBox(
@@ -115,7 +112,7 @@ class Popular extends StatelessWidget {
                   Text(' ${controller.bestRated.price}',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 18,
                           color: Colors.black,fontFamily: 'Churchward Isabella')),
                 ],
               ),

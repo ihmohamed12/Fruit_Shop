@@ -35,7 +35,6 @@ List<Product> items = [];
 List<bool> _flag = [];
 
 class _ProductsPage extends State<ProductsPage> {
-  int index = 0;
   final controller =Get.find<ProductController>();
 
   @override
@@ -60,7 +59,7 @@ class _ProductsPage extends State<ProductsPage> {
     return SafeArea(
         child: Scaffold(
             extendBody: true,
-            backgroundColor: Colors.white.withOpacity(0.95),
+            backgroundColor: Colors.white.withOpacity(0.98),
             extendBodyBehindAppBar: true,
             appBar: null,
             body: Stack(
@@ -70,108 +69,118 @@ class _ProductsPage extends State<ProductsPage> {
                     child: Container(
                         margin: const EdgeInsets.only(top: 15.0),
                         padding: const EdgeInsets.all(20),
-                        child: Column(children: <Widget>[
-                          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text('Hey $name',
-                                style: const TextStyle(
-                                    fontFamily: 'Churchward Isabella',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25,
-                                    color: Colors.black)),
-                            const         Spacer(),
-                            IconButton(onPressed: (){
-                            }, icon:const Icon(Icons.search,color: Colors.black,size: 30,)),
+                        child: GetBuilder<ProductController>(
+                          builder: (controller) =>Column(children: <Widget>[
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+
+                                  Text('Hey $name',
+                                      style: const TextStyle(
+                                          fontFamily: 'Churchward Isabella',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 25,
+                                          color: Colors.black)),
+                                  SizedBox(
+                                    height: MediaQuery.of(context)
+                                        .size
+                                        .height*0.008,
+                                  ),
+
+                                  const Text('what do you like to find',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 18,
+                                        fontFamily: 'Churchward Isabella',
+                                      )),  ],
+                              ),
+                           Row(children: [
+                              IconButton(onPressed: (){
+                              }, icon:const Icon(Icons.search,color: Colors.black,size: 30,)),
 
 
 
 
-                            IconButton(onPressed: (){
-                                  Get.toNamed("/Shopping");
-                                }, icon:const Icon(Icons.notifications,color: Colors.red,size: 30))
+                              IconButton(onPressed: (){
+                                    Get.toNamed("/Shopping");
+                                  }, icon:const Icon(Icons.notifications,color: Colors.red,size: 30))
+                           ],)
 
-
-                          ]),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(children: const [
-                            Text('what do you like to find',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 18,
-                                  fontFamily: 'Churchward Isabella',
-                                )),
-                          ]),
-                                 SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.02,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width, //you sure it should be 0.001?
-                            height: MediaQuery.of(context).size.height * 0.08,
-                            child: ListView.builder(
-                                itemCount: 4,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, i) =>
-                                    TypeCard(i: i)),
-                          ),
-                          const   SizedBox(
-                            height: 20,
-                          ),
-                          Row(children: <Widget>[
-                            const       Text('Popular',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22,
-                                    fontFamily: 'Churchward Isabella')),
-                            const        Spacer(),
-                            InkWell(
-                              onTap: () {},
-                              splashColor: Colors.white10,
-                              child:const Text('Sell All',
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 17)),
+                            ]),
+                             SizedBox(
+                               height: MediaQuery.of(context)
+                                  .size
+                                  .height*0.001,
                             ),
-                          ]),
-                          const        SizedBox(
-                            height: 20,
-                          ),
-                          const Popular(),
-                          const           SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: const [
-                              Text('Top Item',
+
+                                   SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.04,
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context)
+                                  .size
+                                  .width, //you sure it should be 0.001?
+                              height: MediaQuery.of(context).size.height * 0.08,
+                              child: ListView.builder(
+                                  itemCount: 4,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, i) =>
+                                      TypeCard(i: i)),
+                            ),
+                            const   SizedBox(
+                              height: 20,
+                            ),
+                            Row(children: <Widget>[
+                              const       Text('Popular',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 23,
+                                      fontSize: 22,
                                       fontFamily: 'Churchward Isabella')),
-                            ],
-                          ),
-                          GetBuilder<ProductController>(
-                            builder: (controller) => GridView.count(
-                              shrinkWrap: true,
-                              crossAxisCount: 2,
-                              childAspectRatio: 1,
-                              physics:const NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.zero,
-                              clipBehavior: Clip.none,
-                              children: List.generate(
-                                  controller.gridItems.length, (i) {
-                                return ProductCard(
-                                  i: i,
-                                  key: null,
-                                );
-                              }),
+                              const        Spacer(),
+                              InkWell(
+                                onTap: () {},
+                                splashColor: Colors.white10,
+                                child:const Text('Sell All',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 17)),
+                              ),
+                            ]),
+                                    SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
                             ),
-                          ),
-                       SizedBox(
-                         height:MediaQuery.of(context).size.width * 0.12 ,
-                       ),
-                        ])))
+                            const Popular(),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
+                            Row(
+                              children: const [
+                                Text('Top Item',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23,
+                                        fontFamily: 'Churchward Isabella')),
+                              ],
+                            ),
+
+                                  GridView.count(
+                                shrinkWrap: true,
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.98,
+                                physics:const NeverScrollableScrollPhysics(),
+                                children: List.generate(
+                                    controller.gridItems.length, (i) {
+                                  return ProductCard(
+                                    i: i,
+                                    key: null,
+                                  );
+                                }),
+                              ),
+
+
+                          ]),
+                        )))
               ],
             ),
             bottomNavigationBar: ClipRRect(
@@ -179,36 +188,47 @@ class _ProductsPage extends State<ProductsPage> {
                 topRight: Radius.circular(40),
                 topLeft: Radius.circular(40),
               ),
-              child: BottomNavigationBar(
-                backgroundColor: Colors.white,
-                type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.red,
-                currentIndex: index,
-                onTap: (int newindex) {
-                  FirebaseAuth.instance.signOut();
-                  if (newindex == 0) {
-                    Get.offAllNamed('/login');
+              child:   GetBuilder<ProductController>(
+                builder: (controller) => BottomNavigationBar(
+                  backgroundColor: Colors.white,
+                  type: BottomNavigationBarType.fixed,
+                  selectedItemColor: Colors.red,
+                  unselectedItemColor: Colors.grey.withOpacity(0.5 ),
+                  currentIndex: controller.index,
+                  onTap: (int newindex) {
                     FirebaseAuth.instance.signOut();
-                  }
-                },
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_bag),
-                    label: 'Shopping',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.location_on),
-                    label: 'location',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'profile',
-                  ),
-                ],
+                    if (newindex == 4) {
+                      Get.offAllNamed('/login');
+                      FirebaseAuth.instance.signOut();
+                    }
+                    if (newindex == 1) {
+                      Get.toNamed('/Shopping');
+                    }
+                    controller.setPage(newindex);
+                  },
+                  items: const <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.home),
+                      label: 'Home',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.shopping_bag),
+                      label: 'Shopping',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.location_on),
+                      label: 'location',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.person),
+                      label: 'profile',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.logout),
+                      label: 'logout',
+                    ),
+                  ],
+                ),
               ),
             )));
   }

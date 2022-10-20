@@ -58,12 +58,15 @@ class _Register extends State<Register> {
                                 ),
                               ],
                             ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
                             Row(
                               children: const [
                                 Text('Sign up',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 30,
+                                        fontSize: 35,
                                         fontFamily: 'Churchward Isabella')),
                               ],
                             ),
@@ -239,7 +242,7 @@ class _Register extends State<Register> {
                                       SizedBox(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.08,
+                                                0.06,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -326,7 +329,7 @@ class _Register extends State<Register> {
                                       SizedBox(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.05,
+                                                0.048,
                                       ),
                                       Logbutton(email: textEmail.text,
                                           name: textUserName.text,

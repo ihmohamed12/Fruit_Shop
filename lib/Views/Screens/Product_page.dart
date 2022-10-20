@@ -40,11 +40,13 @@ class _ViewProduct extends State<ViewProduct> {
                       onTap: () {
                         Get.back();
                       },
-                      // Image tapped
                       splashColor: Colors.white10,
-                      // Splash color over image
-                      // Splash color over image
                       child: Card(
+                        //specify the button's elevation color
+
+                        shape:  RoundedRectangleBorder(
+                          borderRadius:  BorderRadius.circular(10.0),
+                        ),
                         child: Container(
                             padding: const EdgeInsets.fromLTRB(9, 7, 4, 7),
                             child: const Icon(
@@ -56,10 +58,15 @@ class _ViewProduct extends State<ViewProduct> {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () {}, // Image tapped
+                      onTap: () {},
                       splashColor: Colors.white10,
 
                       child: Card(
+                        //specify the button's elevation color
+
+                        shape:  RoundedRectangleBorder(
+                          borderRadius:  BorderRadius.circular(10.0),
+                        ),
                         child: Container(
                           padding: const EdgeInsets.fromLTRB(7, 7, 9, 7),
                           child: const Icon(
@@ -75,7 +82,7 @@ class _ViewProduct extends State<ViewProduct> {
                     ),
                   ]),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.328,
+                    height: MediaQuery.of(context).size.height * 0.35,
                     width: MediaQuery.of(context).size.width,
                     child: const Item_card(),
                   ),
@@ -97,7 +104,7 @@ class _ViewProduct extends State<ViewProduct> {
                           ],
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.0,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Row(
                           children: [
@@ -113,28 +120,29 @@ class _ViewProduct extends State<ViewProduct> {
                             Text("${currentItem.calories} calories",
                                 style: const TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+
                                 )),
                             const Spacer(),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.05,
-                              width: MediaQuery.of(context).size.width * 0.05,
+                              width: MediaQuery.of(context).size.width * 0.06,
                               child: const Icon(
                                 Icons.star,
                                 color: Colors.yellow,
+                                size: 30,
                               ),
                             ),
                             const Text(" 4.9 ",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 )),
                             const Text("(2645 reiview) ",
                                 style: TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 )),
                           ],
@@ -156,84 +164,89 @@ class _ViewProduct extends State<ViewProduct> {
                               style: const TextStyle(
                                   color: Colors.grey,
                                   fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                                  ),
                             ),
                           ],
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.05),
-                        Column(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: const [
-                                Text("Delivery time ",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                    ))
-                              ],
+                            Column(children: [
+                            const Text("Delivery time ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            SizedBox(
+                              height:
+                              MediaQuery.of(context).size.height * 0.01,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.05,
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.05,
-                                  child: const Icon(
-                                    Icons.punch_clock,
-                                    color: Colors.red,
-                                  ),
+                            Row(children: [
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.05,
+                              width:
+                                  MediaQuery.of(context).size.width * 0.05,
+                              child: const Icon(
+                                Icons.punch_clock,
+                                color: Colors.red,
+                              ),
+                            ),
+
+                            const Text("   20 - 30 min ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            ],),
+                            ],),
+
+                            ElevatedButton(
+                              onPressed: () {},
+                              // Image tapped
+                              style: ElevatedButton.styleFrom(
+                                elevation: 0.0,
+                                shadowColor: Colors.transparent,
+                                shape: const StadiumBorder(),
+                                backgroundColor: Colors.white,
+                              ),
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                        width: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            0.02),
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      width:
+                                          MediaQuery.of(context).size.width *
+                                              0.05,
+                                      child: const
+                                      Icon(Icons.play_circle,color: Colors.orange,size: 30,)
+
+                                    ),
+                                    SizedBox(
+                                      width:
+                                      MediaQuery.of(context).size.width *
+                                          0.012,
+                                    ),
+                                    const Text("   Watch video ",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                        )),
+                                  ],
                                 ),
-                                const Text("   20 - 30 min ",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.1,
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  // Image tapped
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 0.0,
-                                    shadowColor: Colors.transparent,
-                                    shape: const StadiumBorder(),
-                                    backgroundColor: Colors.white,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.02),
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.05,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.05,
-                                        child: const Image(
-                                            image: AssetImage(
-                                                'assets/images/movie.png')),
-                                      ),
-                                      const Text(" Watch video ",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                              ),
                             )
                           ],
                         ),
@@ -311,7 +324,7 @@ class _ViewProduct extends State<ViewProduct> {
                     const Text('  \$ ',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         )),
                     Text(currentItem.price.toString(),
@@ -328,29 +341,30 @@ class _ViewProduct extends State<ViewProduct> {
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         child: Container(
-                          padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
                           child: Row(children: [
-                            Container(
-                                width: MediaQuery.of(context).size.width * 0.07,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.06,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: const Color(0xffef9a9a)
-                                        .withOpacity(0.8)),
-                                child: Row(
+                             Row(
                                   children: [
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width *
-                                          0.012,
+                                          0.01,
                                     ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.09,
+                          height:
+                          MediaQuery.of(context).size.height * 0.06,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: const Color(0xffef9a9a)
+                                  .withOpacity(0.8)),
+
+                          child:
                                     const Icon(
                                       Icons.shopping_bag,
                                       color: Colors.yellow,
-                                      size: 18,
-                                    ),
+                                      size: 23,
+                                    ) ),
                                   ],
-                                )),
+                                ),
                             const Text("  Add to cart   ",
                                 style: TextStyle(
                                   color: Colors.white,

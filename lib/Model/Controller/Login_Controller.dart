@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fruitzzz_shop/Views/Screens/Product_page.dart';
 import 'package:fruitzzz_shop/Views/Screens/Splash_Screen.dart';
 import 'package:username_gen/username_gen.dart';
 import '../../Model/User.dart';
@@ -17,6 +18,8 @@ import '../../Views/Screens/ListLazyLoading.dart';
 
 
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
+import '../../Views/Screens/User_page.dart';
 
 
 
@@ -121,7 +124,7 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return const LazyLoading();
+            return const ProductsPage();
           } else {
             return const Splach();
           }
