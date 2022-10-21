@@ -20,3 +20,13 @@ class Product {
       required this.rating,
       required this.weightBought});
 }
+
+class pay {
+  String name;
+  String Image_Path;
+
+  pay({
+    required this.name,
+    required this.Image_Path,
+  });
+}

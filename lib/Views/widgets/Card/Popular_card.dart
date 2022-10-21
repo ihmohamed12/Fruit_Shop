@@ -6,7 +6,8 @@ import '../../../Model/Controller/Product_Controller.dart';
 bool first = true;
 
 class Popular extends StatelessWidget {
-  const Popular ({Key? key}) : super(key: key);
+  final Product popular;
+  const Popular ({Key? key, required this.popular}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,9 @@ class Popular extends StatelessWidget {
         // Image tapped
         ElevatedButton(
           onPressed: () {
-            currentItem = controller.bestRated;
-            setCurrent(controller.bestRated);
-            controller.current = (controller.bestRated);
+            currentItem = popular;
+            setCurrent(popular);
+            controller.current = (popular);
             Get.toNamed("/Product_card");          },
           style: ElevatedButton.styleFrom(
             shadowColor: Colors.transparent, //specify the button's elevation color
@@ -53,7 +54,7 @@ class Popular extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.14,
               child:  Image(
                   image:  AssetImage(
-                      controller.bestRated.imagePath)),
+                      popular.imagePath)),
             ),
 
 
@@ -61,7 +62,7 @@ class Popular extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    child: Text('     ${controller.bestRated.name}',
+                    child: Text('     ${popular.name}',
                         style:const TextStyle(
                             fontSize: 22,
                             color: Colors.black,fontFamily: 'Churchward Isabella'
@@ -80,7 +81,7 @@ class Popular extends StatelessWidget {
                       image:
                        AssetImage('assets/images/fire.png')),
                 ),
-                Text("   ${controller.bestRated.calories} calories",
+                Text("   ${popular.calories} calories",
                     style:const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -98,7 +99,7 @@ class Popular extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     color:const  Color(0xffffe0b2),
-                    child: Text('  ${controller.bestRated.weight} KG  ',
+                    child: Text('  ${popular.weight} KG  ',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
@@ -107,9 +108,9 @@ class Popular extends StatelessWidget {
                   const Text('  \$',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 12,
                           color: Colors.orange,fontFamily: 'Churchward Isabella')),
-                  Text(' ${controller.bestRated.price}',
+                  Text(' ${popular.price}',
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,

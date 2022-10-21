@@ -4,7 +4,16 @@ import '../../Views/Screens/User_page.dart';
 import '../Product.dart';
 
 class ProductController extends GetxController {
+  List<pay> selectedPayment = [
+    pay(name: "Credit Card", Image_Path: "assets/images/visa.PNG"),
+    pay(name: "Paypal", Image_Path: "assets/images/PayPal.PNG"),
+    pay(name: "Apple pay", Image_Path: "assets/images/Apple.PNG"),
+    pay(name: "Google play", Image_Path: "assets/images/Google2.PNG"),
+  ];
+
   var weight = 0.obs;
+
+   List<bool> paymentCheck =[false,false,false,false];
   int i = 0;
   List<Product> item = [];
   List<Product> bought = [];
@@ -36,7 +45,6 @@ class ProductController extends GetxController {
     return current;
   }
 
-
   weightADD() {
     current.weightBought++;
     update();
@@ -46,14 +54,17 @@ class ProductController extends GetxController {
     current.weightBought--;
     update();
   }
+
   weightADD2(int i) {
     bought[i].weightBought++;
     update();
   }
+
   weightSUB2(int i) {
     bought[i].weightBought--;
     update();
   }
+
   getWeight() {
     return weight;
   }
@@ -167,12 +178,10 @@ class ProductController extends GetxController {
   boughtTotal() {
     double total = 0;
     for (int i = 0; i < bought.length; i++) {
-      total += (bought[i].price*bought[i].weightBought ) ;
-
+      total += (bought[i].price * bought[i].weightBought);
     }
 
     return total;
-
   }
 
   clearBrought() {
@@ -180,10 +189,18 @@ class ProductController extends GetxController {
     update();
   }
 
-  setPage(int newIndex){
-    index =newIndex;
+  setPage(int newIndex) {
+    index = newIndex;
     update();
-
   }
 
+  selectPayment(int i) {
+    for(int i = 0 ; i < paymentCheck.length;i++){
+      paymentCheck[i] = false;
+
+    }
+    paymentCheck[i] = true;
+
+    update();
+  }
 }

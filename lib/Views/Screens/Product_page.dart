@@ -23,7 +23,7 @@ class _ViewProduct extends State<ViewProduct> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white.withOpacity(0.97),
         extendBodyBehindAppBar: true,
         body: Stack(children: <Widget>[
           const BackGroundProducts(),
@@ -82,7 +82,7 @@ class _ViewProduct extends State<ViewProduct> {
                     ),
                   ]),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.35,
+                    height: MediaQuery.of(context).size.height * 0.38,
                     width: MediaQuery.of(context).size.width,
                     child: const Item_card(),
                   ),

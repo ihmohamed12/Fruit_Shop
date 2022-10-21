@@ -44,6 +44,10 @@ dependencies:
   firebase_phone_auth_handler:
   username_gen: ^1.0.4
   fluttertoast: ^8.1.1
+#  dio: ^4.0.0
+#  flutter_polyline_points: ^0.2.6
+#  google_maps_flutter: ^2.0.2
+#  flutter_svg: ^1.1.0
 
 
 

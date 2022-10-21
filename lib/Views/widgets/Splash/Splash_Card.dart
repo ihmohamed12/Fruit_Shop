@@ -41,13 +41,14 @@ class SplachScreens extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: Image(image: AssetImage(image)),
               ),
+              SizedBox(height:MediaQuery.of(context).size.height*0.001 ,),
               Text(
                 description,
                 style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Text(
                 description2,
@@ -55,12 +56,12 @@ class SplachScreens extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.03,
+                  width: MediaQuery.of(context).size.width * 0.03,
                   child: CircleAvatar(
                     backgroundColor: color[0],
                     maxRadius: 30,
@@ -70,8 +71,8 @@ class SplachScreens extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.05,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.03,
+                  width: MediaQuery.of(context).size.width * 0.03,
                   child: CircleAvatar(
                     backgroundColor: color[1],
                     maxRadius: 30,
@@ -81,8 +82,8 @@ class SplachScreens extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.05,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: MediaQuery.of(context).size.width * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.03,
+                  width: MediaQuery.of(context).size.width * 0.03,
                   child: CircleAvatar(
                     backgroundColor: color[2],
                     maxRadius: 30,
@@ -90,34 +91,52 @@ class SplachScreens extends StatelessWidget {
                 )
               ]),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  if(image =="assets/images/Splash1.PNG") {
-                    controller.removeListener(() { });
+              Container(
+                decoration:
+                BoxDecoration(borderRadius: BorderRadius.circular(60), boxShadow: [
+                  BoxShadow(
+                    color: Colors.red.withAlpha(50),
+                    blurRadius: 8.0,
+                    spreadRadius: 1.0,
+                    offset: const Offset(
+                      0.0,
+                      20.0,
+                    ),
+                  ),
+                ]),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if(image =="assets/images/Splash1.PNG") {
+                      controller.removeListener(() { });
 
-                    Get.toNamed('/login');
+                      Get.toNamed('/login');
 
-                  }
-                  controller.animateToPage(
-                    controller.page!.toInt() + 1,
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                  );
+                    }
+                    controller.animateToPage(
+                      controller.page!.toInt() + 1,
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeInOut,
+                    );
 
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all(const CircleBorder()),
-                  padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
-                  backgroundColor: MaterialStateProperty.all(Colors.red),
-                  // <-- Button color
-                  overlayColor:
-                      MaterialStateProperty.resolveWith<Color?>((states) {
-                    return null;
-                  }),
+                  },
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(const CircleBorder()),
+                    padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    // <-- Button color
+                    overlayColor:
+                        MaterialStateProperty.resolveWith<Color?>((states) {
+                      return null;
+                    }),
+
+
+                  ),
+
+
+                  child: const Icon(Icons.arrow_right_alt),
                 ),
-                child: const Icon(Icons.arrow_right_alt),
               )
             ],
           ),

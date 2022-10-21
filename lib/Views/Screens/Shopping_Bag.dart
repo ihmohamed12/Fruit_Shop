@@ -33,7 +33,7 @@ class _ShoppingBag extends State<ShoppingBag> {
                 padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
                 child: Column(
                   children: [
-                    const TopBar(),
+                    const TopBar(title: "My Cart"),
 
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     ListView.builder(
@@ -146,7 +146,9 @@ class _ShoppingBag extends State<ShoppingBag> {
                             ),
                           ]),
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed("payment");
+                          },
 
                           // Image tapped
                           style: ElevatedButton.styleFrom(

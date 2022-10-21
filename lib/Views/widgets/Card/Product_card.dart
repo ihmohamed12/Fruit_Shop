@@ -97,7 +97,7 @@ class ProductCard extends StatelessWidget {
                     const Text('  \$',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 13,
+                            fontSize: 12,
                             color: Colors.orange)),
                     Text(' ${controller.gridItems[i].price}',
                         style: const TextStyle(

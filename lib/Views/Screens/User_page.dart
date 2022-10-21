@@ -96,7 +96,10 @@ class _ProductsPage extends State<ProductsPage> {
                                       )),  ],
                               ),
                            Row(children: [
-                              IconButton(onPressed: (){
+                              IconButton(onPressed: (
+
+                                  ){
+                                Get.toNamed("/Search");
                               }, icon:const Icon(Icons.search,color: Colors.black,size: 30,)),
 
 
@@ -150,7 +153,7 @@ class _ProductsPage extends State<ProductsPage> {
                                     SizedBox(
                               height: MediaQuery.of(context).size.height * 0.03,
                             ),
-                            const Popular(),
+                             Popular(popular: controller.bestRated),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.03,
                             ),

@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitzzz_shop/Model/Controller/Login_Controller.dart';
 import 'package:fruitzzz_shop/Model/Controller_Bindings.dart';
+import 'package:fruitzzz_shop/Views/Screens/Payment.dart';
+import 'package:fruitzzz_shop/Views/Screens/Search.dart';
 import 'package:fruitzzz_shop/Views/Screens/Shopping_Bag.dart';
 import 'package:fruitzzz_shop/Views/Screens/Splash_Screen.dart';
 import 'package:get/get.dart';
@@ -43,6 +45,13 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: '/Shopping',
             page: () => const ShoppingBag(),
+          ),
+          GetPage(
+            name: '/payment',
+            page: () => const Payment(),
+          ),GetPage(
+            name: '/Search',
+            page: () => const Search(),
           ), GetPage(
             name: '/Splach',
             page: () => const Splach(),

@@ -5,7 +5,8 @@ bool first = true;
 final controller = Get.find<ProductController>();
 
 class TopBar extends StatelessWidget {
-  const TopBar({Key? key}) : super(key: key);
+  final String title;
+  const TopBar({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +22,23 @@ class TopBar extends StatelessWidget {
             // Splash color over image
             // Splash color over image
 
-            child: Container(
-                padding: const EdgeInsets.fromLTRB(9, 7, 4, 7),
-                child: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 20, //Icon Size
-                  color: Colors.red,
-                )),
+            child:  Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              shadowColor: Colors.transparent,
+              child: Container(
+                  padding: const EdgeInsets.fromLTRB(9, 7, 4, 7),
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 20, //Icon Size
+                    color: Colors.red,
+                  )),
+            ),
           ),
-          const Text(
-            "My Cart",
-            style: TextStyle(
+           Text(
+            title,
+            style:const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Churchward Isabella'),
