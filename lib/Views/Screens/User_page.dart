@@ -207,6 +207,9 @@ class _ProductsPage extends State<ProductsPage> {
                     if (newindex == 1) {
                       Get.toNamed('/Shopping');
                     }
+                    if (newindex == 2) {
+                      Get.toNamed('/Map');
+                    }
                     controller.setPage(newindex);
                   },
                   items: const <BottomNavigationBarItem>[

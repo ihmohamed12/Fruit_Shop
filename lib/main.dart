@@ -7,6 +7,7 @@ import 'package:fruitzzz_shop/Views/Screens/Search.dart';
 import 'package:fruitzzz_shop/Views/Screens/Shopping_Bag.dart';
 import 'package:fruitzzz_shop/Views/Screens/Splash_Screen.dart';
 import 'package:get/get.dart';
+import 'Views/Screens/Map.dart';
 import 'Views/Screens/User_page.dart';
 import 'Views/Screens/Log_in.dart';
 import 'Views/Screens/register.dart';
@@ -77,6 +78,10 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: '/Send_Email',
             page: () =>const SendEmail(),
+          ),
+          GetPage(
+            name: '/Map',
+            page: () =>const Maps(),
           ),
         ],
         title: 'Exam Application',

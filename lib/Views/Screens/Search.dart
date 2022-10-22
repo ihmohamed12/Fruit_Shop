@@ -5,6 +5,7 @@ import 'package:fruitzzz_shop/Views/widgets/Card/Type_card.dart';
 import '../widgets/BackGround/Background_product.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
+import '../widgets/BackGround/Background_search.dart';
 import '../widgets/Card/Popular_card.dart';
 import '../widgets/Shopping_cart/Top.dart';
 import 'User_page.dart';
@@ -31,60 +32,73 @@ class _Search extends State<Search> {
           backgroundColor: Colors.white.withOpacity(0.97),
           extendBodyBehindAppBar: true,
           appBar: null,
-          body: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
-              child: GetBuilder<ProductController>(
-                builder: (controller) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TopBar(title: ""),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Text(
-                        "Found ${controller.gridItems.length.toString()} Results",
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            fontFamily: 'Churchward Isabella')),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context)
-                          .size
-                          .width, //you sure it should be 0.001?
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      child: ListView.builder(
-                          itemCount: 4,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, i) => TypeCard(i: i)),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context)
-                          .size
-                          .width, //you sure it should be 0.001?
-                      child: ListView.builder(
-                          itemCount: controller.gridItems.length,
-                          physics:const NeverScrollableScrollPhysics(),
+          body:  Stack(
+            children: [
+              BackGroundSearch(),
 
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (context, i) => Container(
-                            child: Popular(
-                                  popular: controller.gridItems[i],
+              SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
+                  child: GetBuilder<ProductController>(
+                    builder: (controller) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const TopBar(title: ""),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Text(
+                            "Found ${controller.gridItems.length.toString()} Results",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                fontFamily: 'Churchward Isabella')),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context)
+                              .size
+                              .width, //you sure it should be 0.001?
+                          height: MediaQuery.of(context).size.height * 0.08,
+                          child: ListView.builder(
+                              itemCount: 4,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, i) => TypeCard(i: i)),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context)
+                              .size
+                              .width, //you sure it should be 0.001?
+                          child: ListView.builder(
+                              itemCount: controller.gridItems.length,
+                              physics:const NeverScrollableScrollPhysics(),
+
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, i) => Container(
+                                child: Column(
+                                  children: [
+                                    SizedBox( height: MediaQuery.of(context)
+                                        .size
+                                        .height*0.01,),
+                                    Popular(
+                                          popular: controller.gridItems[i],
+                                        ),
+                                  ],
                                 ),
-                          )),
+                              )),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
           )),
     );
   }

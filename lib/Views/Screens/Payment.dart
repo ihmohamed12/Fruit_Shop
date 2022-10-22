@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../Model/Controller/Product_Controller.dart';
+import '../widgets/BackGround/Background_payment.dart';
 import '../widgets/Shopping_cart/Payment_Method.dart';
 import '../widgets/Shopping_cart/Top.dart';
 
@@ -26,6 +27,7 @@ class _Payment extends State<Payment> {
             appBar: null,
             body: Stack(
               children: [
+                BackGroundPayment(),
                 SingleChildScrollView(
                   child: Container(
                     padding: const EdgeInsets.all(20),
@@ -193,7 +195,7 @@ class _Payment extends State<Payment> {
                                 ), // Image tapped
 
                                 child: const Text(
-                                  "Order Now",
+                                  "Pay Now",
                                   style: TextStyle(fontSize: 26),
                                 )),
                           ),
