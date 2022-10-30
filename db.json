@@ -9,7 +9,5 @@
     "weight": { "int": {} },
     "rating": { "double": {} },
     "weightBought": { "int": {} },
-    "comments": {
-      "hasMany": "Comment"
-    }
   }
+}
