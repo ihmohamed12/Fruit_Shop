@@ -1,5 +1,5 @@
 {
-  "Product": {
+  "Product": [
        "name": "Strawbereis",
         "type": "Fruit",
         "price": 8.60,
@@ -9,5 +9,5 @@
         "weight": 4,
         "rating": 4.5,
         "weightBought": 1 
-  }
+  ]
 }
