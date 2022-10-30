@@ -1,0 +1,16 @@
+{
+  "Product": {
+    "name": { "string": {} },
+    "type": { "string": {} },
+    "price": { "double": {} },
+    "description": { "string": {} },
+    "imagePath": { "string": {} },
+    "calories": { "int": {} },
+    "weight": { "int": {} },
+    "rating": { "double": {} },
+    "weightBought": { "int": {} },
+    "comments": {
+      "hasMany": "Comment"
+    }
+  },
+}
